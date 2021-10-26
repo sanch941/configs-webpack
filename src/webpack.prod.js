@@ -46,31 +46,7 @@ module.exports.initWebpackProd = ({ paths, webpackCommon, rootDir }) => {
                 })
             ],
             usedExports: true,
-            splitChunks: {
-                chunks: 'async',
-                minSize: 30000,
-                maxSize: 0,
-                minChunks: 1,
-                maxAsyncRequests: 5,
-                maxInitialRequests: 3,
-                automaticNameDelimiter: '~',
-                automaticNameMaxLength: 30,
-                name: true,
-                cacheGroups: {
-                    vendor: {
-                        // node_modules配下のモジュールをバンドル対象とする
-                        test: /node_modules/,
-                        name: 'vendor',
-                        chunks: 'initial',
-                        enforce: true
-                    },
-                    default: {
-                        minChunks: 2,
-                        priority: -20,
-                        reuseExistingChunk: true
-                    }
-                }
-            }
+            splitChunks: 'all'
         },
         module: {
             rules: [
