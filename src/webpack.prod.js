@@ -14,12 +14,6 @@ module.exports.initWebpackProd = ({ paths, webpackCommon, rootDir }) => {
     return merge(webpackCommon, {
         mode: 'production',
         devtool: 'hidden-source-map',
-        node: {
-            // workaround for webpack-dev-server issue
-            // https://github.com/webpack/webpack-dev-server/issues/60#issuecomment-103411179
-            fs: 'empty',
-            net: 'empty'
-        },
         target: 'web',
         output: {
             path: outputPath,
