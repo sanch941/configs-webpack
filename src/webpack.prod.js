@@ -40,7 +40,9 @@ module.exports.initWebpackProd = ({ paths, webpackCommon, rootDir }) => {
                 })
             ],
             usedExports: true,
-            splitChunks: 'all'
+            splitChunks: {
+                chunks: 'all'
+            }
         },
         module: {
             rules: [
