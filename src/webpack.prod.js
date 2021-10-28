@@ -18,7 +18,7 @@ module.exports.initWebpackProd = ({ paths, webpackCommon, rootDir }) => {
         output: {
             path: outputPath,
             publicPath,
-            filename: '[contenthash].js',
+            filename: '[name].[contenthash].js',
             chunkFilename: '[name].[contenthash].js'
         },
         optimization: {
