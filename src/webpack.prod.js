@@ -77,6 +77,10 @@ module.exports.initWebpackProd = ({ paths, webpackCommon, rootDir }) => {
                     use: ['file-loader']
                 },
                 {
+                    test: /\.css$/i,
+                    use: ['style-loader', 'css-loader']
+                },
+                {
                     test: /\.inline.svg$/,
                     use: [
                         {
