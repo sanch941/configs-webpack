@@ -40,15 +40,16 @@ module.exports.initWebpackDev = ({ paths, webpackCommon, rootDir }) => {
 
     return merge(webpackCommon, {
         mode: 'development',
-        devtool: 'cheap-module-eval-source-map',
+        devtool: 'eval',
         devServer: {
-            contentBase: staticPath,
             hot: true,
-            inline: true,
-            overlay: true,
             port: portFinderSync.getPort(3000),
             open: true,
             historyApiFallback: true,
+            static: {
+                directory: staticPath
+            },
+            compress: true,
             proxy: [
                 {
                     context: ['/tp-local-api'],
@@ -68,13 +69,13 @@ module.exports.initWebpackDev = ({ paths, webpackCommon, rootDir }) => {
                     changeOrigin: true
                 }
             ],
-            clientLogLevel: 'none'
-        },
-        node: {
-            // workaround for webpack-dev-server issue
-            // https://github.com/webpack/webpack-dev-server/issues/60#issuecomment-103411179
-            fs: 'empty',
-            net: 'empty'
+            client: {
+                logging: 'none',
+                overlay: {
+                    errors: true,
+                    warnings: false
+                }
+            }
         },
         output: {
             path: outputPath,
