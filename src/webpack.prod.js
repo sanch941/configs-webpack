@@ -8,8 +8,8 @@ const TerserPlugin = require('terser-webpack-plugin');
 const { getCommonPaths } = require('./lib.js');
 
 module.exports.initWebpackProd = ({ paths, webpackCommon, rootDir }) => {
-    const { outputPath, publicPath = '/' } = paths;
-    const { commonStaticPath } = getCommonPaths(rootDir);
+    const { outputPath, publicPath = '/', staticPath } =
+        paths || getCommonPaths(rootDir);
 
     return merge(webpackCommon, {
         mode: 'production',
@@ -109,7 +109,7 @@ module.exports.initWebpackProd = ({ paths, webpackCommon, rootDir }) => {
                 ]
             }),
             new HtmlWebpackPlugin({
-                template: path.join(commonStaticPath, 'index.ejs'),
+                template: path.join(staticPath, 'index.ejs'),
                 minify: {
                     minifyJS: true,
                     minifyCSS: true,

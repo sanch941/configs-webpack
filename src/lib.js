@@ -41,10 +41,14 @@ module.exports.getCommonPaths = (rootDir) => {
     const sourcePath = path.join(rootDir, 'src');
     const staticPath = path.join(sourcePath, 'public');
     const assetsPath = path.join(sourcePath, 'assets');
+    const outputPath = path.join(rootDir, 'dist');
+    const publicPath = '/public/';
 
     return {
-        commonSourcePath: sourcePath,
-        commonStaticPath: staticPath,
-        commonAssetsPath: assetsPath
+        sourcePath,
+        staticPath,
+        assetsPath,
+        outputPath,
+        publicPath
     };
 };

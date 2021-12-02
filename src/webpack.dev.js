@@ -35,14 +35,14 @@ const addToFileDeps = {
 };
 
 module.exports.initWebpackDev = ({ paths, webpackCommon, rootDir }) => {
-    const { outputPath } = paths;
-    const { commonStaticPath, commonSourcePath } = getCommonPaths(rootDir);
+    const { sourcePath, outputPath, staticPath } =
+        paths || getCommonPaths(rootDir);
 
     return merge(webpackCommon, {
         mode: 'development',
         devtool: 'cheap-module-eval-source-map',
         devServer: {
-            contentBase: commonStaticPath,
+            contentBase: staticPath,
             hot: true,
             inline: true,
             overlay: true,
@@ -159,11 +159,11 @@ module.exports.initWebpackDev = ({ paths, webpackCommon, rootDir }) => {
 
                 eslint: {
                     enabled: true,
-                    files: path.join(commonSourcePath, '**/*.{ts,tsx}')
+                    files: path.join(sourcePath, '**/*.{ts,tsx}')
                 }
             }),
             new HtmlWebpackPlugin({
-                template: path.join(commonStaticPath, 'index.ejs')
+                template: path.join(staticPath, 'index.ejs')
             }),
             new webpack.DllReferencePlugin({
                 context: rootDir,
