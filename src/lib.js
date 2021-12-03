@@ -1,5 +1,8 @@
 const path = require('path');
 const kill = require('tree-kill');
+const importCwd = require('import-cwd');
+
+const { paths = {} } = importCwd('./webpack-eject.js');
 
 const folderAliasesCommon = {
     '@features': 'features',
@@ -14,6 +17,10 @@ const folderAliasesCommon = {
     '@pages': 'pages',
     '@processes': 'processes'
 };
+
+const rootDir = path.resolve(process.cwd());
+
+module.exports.rootDir = rootDir;
 
 module.exports.setupAliases = (
     sourcePath,
@@ -37,18 +44,23 @@ module.exports.killOnCtrlC = () => {
     });
 };
 
-module.exports.getCommonPaths = (rootDir) => {
+module.exports.getCommonPaths = () => {
     const sourcePath = path.join(rootDir, 'src');
     const staticPath = path.join(sourcePath, 'public');
     const assetsPath = path.join(sourcePath, 'assets');
     const outputPath = path.join(rootDir, 'dist');
     const publicPath = '/public/';
 
-    return {
+    const commonPaths = {
         sourcePath,
         staticPath,
         assetsPath,
         outputPath,
         publicPath
+    };
+
+    return {
+        ...commonPaths,
+        ...paths
     };
 };

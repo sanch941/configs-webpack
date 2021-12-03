@@ -4,7 +4,7 @@
   "description": "Typescript-react-webpack-configs",
   "main": "src/index.js",
   "bin": {
-    "sanch-wb": "bin/sanch-wb.js"
+    "sanch941-configs-webpack": "./src/index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -55,6 +55,7 @@
     "copy-webpack-plugin": "^10.0.0",
     "corejs": "^1.0.0",
     "cross-env": "^7.0.2",
+    "cross-spawn": "^7.0.3",
     "css-loader": "^3.4.2",
     "cssnano": "^4.1.10",
     "dotenv": "^8.2.0",

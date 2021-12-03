@@ -1,7 +1,12 @@
 const path = require('path');
 const webpack = require('webpack');
+const importCwd = require('import-cwd');
+const { rootDir } = require('./lib');
 
-module.exports.initWebpackLibrary = (rootDir, dependencies) => ({
+const { dependencies } = importCwd('./package.json');
+const { ['react-imask']: value, ...allDependencies } = dependencies;
+
+module.exports = {
     mode: 'development',
     devtool: 'eval',
     context: rootDir,
@@ -9,7 +14,7 @@ module.exports.initWebpackLibrary = (rootDir, dependencies) => ({
         extensions: ['.js', '.jsx', '.json', '.less', '.css']
     },
     entry: {
-        library: Object.keys(dependencies || {})
+        library: Object.keys(allDependencies || {})
     },
     output: {
         filename: '[name].dll.js',
@@ -23,4 +28,4 @@ module.exports.initWebpackLibrary = (rootDir, dependencies) => ({
             entryOnly: true
         })
     ]
-});
+};
