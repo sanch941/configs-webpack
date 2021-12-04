@@ -6,16 +6,15 @@ const { paths = {} } = importCwd('./webpack-eject.js');
 
 const folderAliasesCommon = {
     '@features': 'features',
-    /* components и router оставил для обратной совместимости со старыми проектам
-    будут удалены в следующих версиях */
-    '@components': 'components',
     '@router': 'router',
     '@assets': 'assets',
+    '@processes': 'processes',
     '@api': 'api',
     '@store': 'store',
     '@ui': 'ui',
     '@pages': 'pages',
-    '@processes': 'processes'
+    '@feature-toggle-components': 'feature-toggle-components',
+    '@lib': 'lib'
 };
 
 const rootDir = path.resolve(process.cwd());
@@ -24,9 +23,10 @@ module.exports.rootDir = rootDir;
 
 module.exports.setupAliases = (
     sourcePath,
-    folderAliases = folderAliasesCommon
+    folderAliases
 ) => {
     const newFolderAliases = {};
+    folderAliases = { ...folderAliasesCommon, ...folderAliases }
 
     Object.keys(folderAliases).map((key) => {
         const folder = folderAliases[key];

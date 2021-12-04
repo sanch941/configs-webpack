@@ -2,15 +2,13 @@ const path = require('path');
 const glob = require('glob');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const portFinderSync = require('portfinder-sync');
-const { killOnCtrlC, getCommonPaths, rootDir } = require('./lib.js');
+const { getCommonPaths, rootDir } = require('./lib.js');
 const { webpackCommonConfig } = require('./webpack.common');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const { merge } = require('webpack-merge');
 const webpack = require('webpack');
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 const importCwd = require('import-cwd');
-
-killOnCtrlC();
 
 const tsIncludePatterns = ['src/**/*.d.ts'];
 const { sourcePath, outputPath, staticPath } = getCommonPaths();
