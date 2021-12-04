@@ -15,7 +15,20 @@
     "library": "webpack --config public/webpack.library.js",
     "clean-cache": "rimraf ./node_modules/.cache/"
   },
-  "devDependencies": {
+  "author": "sanch941",
+  "license": "MIT",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/sanch941/configs-webpack.git"
+  },
+  "bugs": {
+    "url": "https://gitlab.com/sanch941/configs-webpack/issues"
+  },
+  "homepage": "https://gitlab.com/sanch941/configs-webpack#readme",
+  "dependencies": {
     "@babel/core": "^7.7.7",
     "@babel/plugin-transform-typescript": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
@@ -119,25 +132,6 @@
     "webpack-dev-server": "^4.6.0",
     "webpack-hot-middleware": "^2.25.1",
     "webpack-merge": "^5.8.0"
-  },
-  "author": "sanch941",
-  "license": "MIT",
-  "directories": {
-    "test": "test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://gitlab.com/sanch941/configs-webpack.git"
-  },
-  "bugs": {
-    "url": "https://gitlab.com/sanch941/configs-webpack/issues"
-  },
-  "homepage": "https://gitlab.com/sanch941/configs-webpack#readme",
-  "dependencies": {
-    "core-js": "^3.19.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "styled-components": "^5.3.3"
   },
   "resolutions": {
     "styled-components": "^5"
