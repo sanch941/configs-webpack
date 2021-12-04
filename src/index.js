@@ -1,4 +1,8 @@
 #! /usr/bin/env node
+const path = require('path');
+const { rootDir } = require('./lib');
+
+require('dotenv').config({ path: path.join(rootDir, '.env') });
 const spawn = require('cross-spawn');
 
 const [task] = process.argv.slice(2);
