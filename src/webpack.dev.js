@@ -1,5 +1,4 @@
 const path = require('path');
-const glob = require('glob');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const portFinderSync = require('portfinder-sync');
 const { getCommonPaths, rootDir } = require('./lib.js');
@@ -10,30 +9,8 @@ const webpack = require('webpack');
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 const importCwd = require('import-cwd');
 
-const tsIncludePatterns = ['src/**/*.d.ts'];
 const { sourcePath, outputPath, staticPath } = getCommonPaths();
 const { customDevConfig = {} } = importCwd('./webpack-eject.js');
-
-const addToFileDeps = {
-    apply(compiler) {
-        compiler.hooks.afterCompile.tap(
-            'AddToFileDepsPlugin',
-            (compilation) => {
-                tsIncludePatterns
-                    .reduce(
-                        (filePaths, pattern) =>
-                            filePaths.concat(glob.sync(pattern)),
-                        []
-                    )
-                    .forEach((filePath) => {
-                        compilation.fileDependencies.add(
-                            path.resolve(filePath)
-                        );
-                    });
-            }
-        );
-    }
-};
 
 const config = {
     mode: 'development',
@@ -145,7 +122,6 @@ const config = {
         ]
     },
     plugins: [
-        addToFileDeps,
         new ForkTsCheckerWebpackPlugin({
             typescript: {
                 mode: 'write-references',
@@ -177,6 +153,5 @@ const config = {
         hints: false
     }
 };
-
 
 module.exports = merge(webpackCommonConfig, config, customDevConfig);
