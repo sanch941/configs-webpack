@@ -5,9 +5,7 @@ const { setupAliases, getCommonPaths, rootDir } = require('./lib');
 const importCwd = require('import-cwd');
 
 const isDev = process.env.NODE_ENV !== 'production';
-const { aliases, customCommonConfig = {} } = importCwd(
-    './webpack-eject.js'
-);
+const { aliases, customCommonConfig = {} } = importCwd('./webpack-eject.js');
 const { sourcePath } = getCommonPaths();
 
 module.exports.webpackCommonConfig = {
@@ -34,4 +32,3 @@ module.exports.webpackCommonConfig = {
     ],
     ...customCommonConfig
 };
-

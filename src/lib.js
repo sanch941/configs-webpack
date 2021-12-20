@@ -21,12 +21,9 @@ const rootDir = path.resolve(process.cwd());
 
 module.exports.rootDir = rootDir;
 
-module.exports.setupAliases = (
-    sourcePath,
-    folderAliases
-) => {
+module.exports.setupAliases = (sourcePath, folderAliases) => {
     const newFolderAliases = {};
-    folderAliases = { ...folderAliasesCommon, ...folderAliases }
+    folderAliases = { ...folderAliasesCommon, ...folderAliases };
 
     Object.keys(folderAliases).map((key) => {
         const folder = folderAliases[key];
@@ -49,7 +46,7 @@ module.exports.getCommonPaths = () => {
     const staticPath = path.join(sourcePath, 'public');
     const assetsPath = path.join(sourcePath, 'assets');
     const outputPath = path.join(rootDir, 'dist');
-    const publicPath = '/public/';
+    const publicPath = '/';
 
     const commonPaths = {
         sourcePath,

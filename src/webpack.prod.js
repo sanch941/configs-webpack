@@ -27,7 +27,6 @@ const config = {
         minimizer: [
             new TerserPlugin({
                 parallel: true,
-                sourceMap: true,
                 terserOptions: {
                     toplevel: true,
                     mangle: {
