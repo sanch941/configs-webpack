@@ -110,6 +110,8 @@ const config = {
         }),
         new HtmlWebpackPlugin({
             template: path.join(staticPath, 'index.ejs'),
+            inject: 'body',
+            scriptLoading: 'blocking',
             minify: {
                 minifyJS: true,
                 minifyCSS: true,
