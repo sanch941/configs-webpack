@@ -28,7 +28,6 @@ const config = {
             new TerserPlugin({
                 parallel: true,
                 terserOptions: {
-                    toplevel: true,
                     mangle: {
                         keep_classnames: true,
                         keep_fnames: true
@@ -45,7 +44,6 @@ const config = {
         }
     },
     module: {
-        noParse: '/samsung-pay-sdk.js/',
         rules: [
             // .ts, .tsx
             {
@@ -103,6 +101,7 @@ const config = {
             patterns: [
                 {
                     from: 'src/public',
+                    info: { minimized: true },
                     globOptions: {
                         ignore: ['**/*index.ejs']
                     }
@@ -114,7 +113,7 @@ const config = {
             inject: 'body',
             scriptLoading: 'blocking',
             minify: {
-                minifyJS: true,
+                minifyJS: false,
                 minifyCSS: true,
                 removeComments: true,
                 useShortDoctype: true,
