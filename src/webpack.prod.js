@@ -45,6 +45,7 @@ const config = {
         }
     },
     module: {
+        noParse: '/samsung-pay-sdk.js/',
         rules: [
             // .ts, .tsx
             {
