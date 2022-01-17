@@ -1,6 +1,6 @@
 {
   "name": "@sanch941/configs-webpack",
-  "version": "3.3.7",
+  "version": "3.3.8",
   "description": "Typescript-react-webpack-configs",
   "main": "src/index.js",
   "bin": {
