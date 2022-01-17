@@ -1,6 +1,6 @@
 {
   "name": "@sanch941/configs-webpack",
-  "version": "3.2.9",
+  "version": "3.2.10",
   "description": "Typescript-react-webpack-configs",
   "main": "src/index.js",
   "bin": {
@@ -63,7 +63,7 @@
     "cache-loader": "^4.1.0",
     "chokidar": "^3.4.0",
     "clean-webpack-plugin": "^4.0.0",
-    "compression-webpack-plugin": "^9.0.1",
+    "compression-webpack-plugin": "7.1.2",
     "concurrently": "^5.2.0",
     "copy-webpack-plugin": "^10.0.0",
     "corejs": "^1.0.0",
