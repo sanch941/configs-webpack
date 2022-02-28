@@ -17,7 +17,6 @@ module.exports.webpackCommonConfig = {
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.d.ts'],
         alias: {
-            'react-dom': '@hot-loader/react-dom',
             ...setupAliases(sourcePath, aliases)
         }
     },

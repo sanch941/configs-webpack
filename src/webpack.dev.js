@@ -8,6 +8,7 @@ const { merge } = require('webpack-merge');
 const webpack = require('webpack');
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 const importCwd = require('import-cwd');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 const { sourcePath, outputPath, staticPath } = getCommonPaths();
 const { customDevConfig = {} } = importCwd('./webpack-eject.js');
@@ -75,7 +76,7 @@ const config = {
                     {
                         loader: 'babel-loader',
                         options: {
-                            plugins: ['react-hot-loader/babel']
+                            plugins: ['react-refresh/babel']
                         }
                     }
                 ],
@@ -147,7 +148,8 @@ const config = {
             filepath: require.resolve(
                 path.join(rootDir, 'build/library/library.dll.js')
             )
-        })
+        }),
+        new ReactRefreshWebpackPlugin()
     ],
     performance: {
         hints: false
