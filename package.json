@@ -1,6 +1,6 @@
 {
   "name": "@sanch941/configs-webpack",
-  "version": "3.4.2",
+  "version": "3.4.3",
   "description": "Typescript-react-webpack-configs",
   "main": "src/index.js",
   "bin": {
@@ -34,6 +34,7 @@
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.4",
     "@types/classnames": "^2.2.9",
     "@types/history": "^4.7.3",
     "@types/i18next-browser-languagedetector": "^3.0.0",
@@ -104,6 +105,7 @@
     "postcss-url": "^8.0.0",
     "prettier": "^2.0.5",
     "react-error-overlay": "^6.0.7",
+    "react-refresh": "^0.11.0",
     "react-svg-loader": "^3.0.3",
     "redux-devtools-extension": "^2.13.8",
     "regenerator-runtime": "^0.13.9",
@@ -140,9 +142,5 @@
     "tabWidth": 4,
     "endOfLine": "auto",
     "trailingComma": "none"
-  },
-  "devDependencies": {
-    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.4",
-    "react-refresh": "^0.11.0"
   }
 }
