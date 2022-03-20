@@ -3,9 +3,13 @@ const path = require('path');
 const Dotenv = require('dotenv-webpack');
 const { setupAliases, getCommonPaths, rootDir } = require('./lib');
 const importCwd = require('import-cwd');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+    .BundleAnalyzerPlugin;
 
 const isDev = process.env.NODE_ENV !== 'production';
-const { aliases, customCommonConfig = {} } = importCwd('./webpack-eject.js');
+const { aliases, customCommonConfig = {}, analyzeBundle } = importCwd(
+    './webpack-eject.js'
+);
 const { sourcePath } = getCommonPaths();
 
 module.exports.webpackCommonConfig = {
@@ -27,7 +31,8 @@ module.exports.webpackCommonConfig = {
         }),
         new Dotenv({
             path: path.join(rootDir, '.env')
-        })
-    ],
+        }),
+        analyzeBundle ? new BundleAnalyzerPlugin() : false
+    ].filter(Boolean),
     ...customCommonConfig
 };
