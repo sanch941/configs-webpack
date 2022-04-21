@@ -72,6 +72,18 @@ const config = {
                 ]
             },
             {
+                test: /\.mp4$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'video'
+                        }
+                    }
+                ]
+            },
+            {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
                 use: ['file-loader']
             },
