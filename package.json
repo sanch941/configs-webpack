@@ -1,6 +1,6 @@
 {
   "name": "@sanch941/configs-webpack",
-  "version": "3.5.1",
+  "version": "3.6.0",
   "description": "Typescript-react-webpack-configs",
   "main": "src/index.js",
   "bin": {
@@ -13,7 +13,9 @@
     "dev": "yarn start",
     "build": "cross-env NODE_ENV=production webpack -p --config public/webpack.prod.js",
     "library": "webpack --config public/webpack.library.js",
-    "clean-cache": "rimraf ./node_modules/.cache/"
+    "clean-cache": "rimraf ./node_modules/.cache/",
+    "version": "git add -A .",
+    "postversion": "git push origin develop"
   },
   "author": "sanch941",
   "license": "MIT",
