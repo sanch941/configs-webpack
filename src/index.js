@@ -38,14 +38,14 @@ switch (task) {
         result = spawn.sync(
             `webpack --config ${prodConfig} --progress && ${previewDistFolder}`,
             {
-                stdio: 'inherit'
+                shell: true
             }
         );
         break;
     }
     case 'preview': {
         result = spawn.sync(previewDistFolder, {
-            stdio: 'inherit'
+            shell: true
         });
         break;
     }
