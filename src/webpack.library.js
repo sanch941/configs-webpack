@@ -3,8 +3,10 @@ const webpack = require('webpack');
 const importCwd = require('import-cwd');
 const { rootDir } = require('./lib');
 
+const { customDependencies } = importCwd('./webpack-eject.js');
 const { dependencies } = importCwd('./package.json');
-const { ['react-imask']: value, ...allDependencies } = dependencies;
+const { ['react-imask']: value, ...allDependencies } =
+    customDependencies || dependencies;
 
 module.exports = {
     mode: 'development',
