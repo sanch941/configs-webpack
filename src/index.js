@@ -10,6 +10,8 @@ const devConfig = require.resolve(`./webpack.dev.js`);
 const prodConfig = require.resolve(`./webpack.prod.js`);
 const libraryConfig = require.resolve(`./webpack.library.js`);
 
+const previewDistFolder = 'http-server ./dist -o -g -p 8097';
+
 let result;
 switch (task) {
     case 'dev': {
@@ -28,6 +30,21 @@ switch (task) {
     }
     case 'library': {
         result = spawn.sync('webpack', ['--config', libraryConfig], {
+            stdio: 'inherit'
+        });
+        break;
+    }
+    case 'build:preview': {
+        result = spawn.sync(
+            `webpack --config ${prodConfig} --progress && ${previewDistFolder}`,
+            {
+                stdio: 'inherit'
+            }
+        );
+        break;
+    }
+    case 'preview': {
+        result = spawn.sync(previewDistFolder, {
             stdio: 'inherit'
         });
         break;
