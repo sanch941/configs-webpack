@@ -90,6 +90,7 @@
     "glob": "^7.1.6",
     "html-loader": "^1.1.0",
     "html-webpack-plugin": "^5.5.0",
+    "http-server": "^14.1.0",
     "husky": "^4.2.5",
     "image-minimizer-webpack-plugin": "^3.2.3",
     "imagemin": "^8.0.1",
