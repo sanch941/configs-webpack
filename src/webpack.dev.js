@@ -4,7 +4,7 @@ const portFinderSync = require('portfinder-sync');
 const { getCommonPaths, rootDir } = require('./lib.js');
 const { webpackCommonConfig } = require('./webpack.common');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const { merge } = require('webpack-merge');
+const { merge, mergeWithRules } = require('webpack-merge');
 const webpack = require('webpack');
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 const importCwd = require('import-cwd');
@@ -82,55 +82,10 @@ const config = {
                 ],
                 exclude: /node_modules/
             },
-            { test: /\.html$/, use: 'html-loader' },
             {
                 test: /\.(png|jpe?g|gif|svg)$/i,
                 exclude: /\.inline.svg$/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name() {
-                                return '[path][name].[ext]';
-                            },
-                            esModule: false
-                        }
-                    }
-                ]
-            },
-            {
-                test: /\.mp4$/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: '[name].[ext]',
-                            outputPath: 'video'
-                        }
-                    }
-                ]
-            },
-            {
-                test: /\.(woff|woff2|eot|ttf|otf)$/,
-                use: ['file-loader']
-            },
-            {
-                test: /\.css$/i,
-                use: ['style-loader', 'css-loader']
-            },
-            {
-                test: /\.inline.svg$/,
-                use: [
-                    {
-                        loader: 'babel-loader'
-                    },
-                    {
-                        loader: 'react-svg-loader',
-                        options: {
-                            jsx: true // true outputs JSX tags
-                        }
-                    }
-                ]
+                type: 'asset'
             }
         ]
     },
@@ -168,4 +123,13 @@ const config = {
     }
 };
 
-module.exports = merge(webpackCommonConfig, config, customDevConfig);
+module.exports = mergeWithRules({
+    devServer: {
+        proxy: {
+            context: 'match',
+            target: 'replace',
+            changeOrigin: 'replace',
+            pathRewrite: 'replace'
+        }
+    }
+})(webpackCommonConfig, config, customDevConfig);

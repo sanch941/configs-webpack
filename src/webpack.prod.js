@@ -8,6 +8,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const { getCommonPaths } = require('./lib');
 const { webpackCommonConfig } = require('./webpack.common');
 const importCwd = require('import-cwd');
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 const { customProdConfig = {} } = importCwd('./webpack-eject.js');
 const { outputPath, publicPath, staticPath } = getCommonPaths();
@@ -36,6 +37,46 @@ const config = {
                         comments: false
                     }
                 }
+            }),
+            new ImageMinimizerPlugin({
+                minimizer: {
+                    implementation: ImageMinimizerPlugin.imageminMinify,
+                    options: {
+                        // Lossless optimization with custom option
+                        // Feel free to experiment with options for better result for you
+                        plugins: [
+                            ['gifsicle', { interlaced: true }],
+                            ['jpegtran', { progressive: true }],
+                            ['optipng', { optimizationLevel: 5 }],
+                            // Svgo configuration here https://github.com/svg/svgo#configuration
+                            [
+                                'svgo',
+                                {
+                                    plugins: [
+                                        {
+                                            name: 'preset-default'
+                                        },
+                                        {
+                                            name: 'removeViewBox',
+                                            active: false
+                                        },
+                                        {
+                                            name: 'addAttributesToSVGElement',
+                                            params: {
+                                                attributes: [
+                                                    {
+                                                        xmlns:
+                                                            'http://www.w3.org/2000/svg'
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        ]
+                    }
+                }
             })
         ],
         usedExports: true,
@@ -55,55 +96,10 @@ const config = {
                     }
                 ]
             },
-            { test: /\.html$/, use: 'html-loader' },
             {
                 test: /\.(png|jpe?g|gif|svg)$/i,
                 exclude: /\.inline.svg$/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name() {
-                                return '[contenthash].[ext]';
-                            },
-                            esModule: false
-                        }
-                    }
-                ]
-            },
-            {
-                test: /\.mp4$/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: '[name].[ext]',
-                            outputPath: 'video'
-                        }
-                    }
-                ]
-            },
-            {
-                test: /\.(woff|woff2|eot|ttf|otf)$/,
-                use: ['file-loader']
-            },
-            {
-                test: /\.css$/i,
-                use: ['style-loader', 'css-loader']
-            },
-            {
-                test: /\.inline.svg$/,
-                use: [
-                    {
-                        loader: 'babel-loader'
-                    },
-                    {
-                        loader: 'react-svg-loader',
-                        options: {
-                            jsx: true // true outputs JSX tags
-                        }
-                    }
-                ]
+                type: 'asset'
             }
         ]
     },

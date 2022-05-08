@@ -34,5 +34,32 @@ module.exports.webpackCommonConfig = {
         }),
         analyzeBundle ? new BundleAnalyzerPlugin() : false
     ].filter(Boolean),
+    module: {
+        rules: [
+            { test: /\.html$/, type: 'asset/resource' },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf|mp4)$/,
+                type: 'asset/resource'
+            },
+            {
+                test: /\.css$/i,
+                use: ['style-loader', 'css-loader']
+            },
+            {
+                test: /\.inline.svg$/,
+                use: [
+                    {
+                        loader: 'babel-loader'
+                    },
+                    {
+                        loader: 'react-svg-loader',
+                        options: {
+                            jsx: true // true outputs JSX tags
+                        }
+                    }
+                ]
+            }
+        ]
+    },
     ...customCommonConfig
 };
