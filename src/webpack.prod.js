@@ -47,7 +47,7 @@ const config = {
                         plugins: [
                             ['gifsicle', { interlaced: true }],
                             ['jpegtran', { progressive: true }],
-                            ['optipng', { optimizationLevel: 5 }],
+                            ['pngquant', { quality: [0.3, 0.5] }],
                             // Svgo configuration here https://github.com/svg/svgo#configuration
                             [
                                 'svgo',
