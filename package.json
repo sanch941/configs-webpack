@@ -1,6 +1,6 @@
 {
   "name": "@sanch941/configs-webpack",
-  "version": "3.7.0",
+  "version": "3.8.0",
   "description": "Typescript-react-webpack-configs",
   "main": "src/index.js",
   "bin": {
@@ -91,6 +91,12 @@
     "html-loader": "^1.1.0",
     "html-webpack-plugin": "^5.5.0",
     "husky": "^4.2.5",
+    "image-minimizer-webpack-plugin": "^3.2.3",
+    "imagemin": "^8.0.1",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-jpegtran": "^7.0.0",
+    "imagemin-optipng": "^8.0.0",
+    "imagemin-svgo": "^10.0.1",
     "imports-loader": "^1.1.0",
     "less-loader": "^6.2.0",
     "lint-staged": "^10.2.7",
@@ -133,13 +139,7 @@
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.6.0",
     "webpack-hot-middleware": "^2.25.1",
-    "webpack-merge": "^5.8.0",
-    "image-minimizer-webpack-plugin": "^3.2.3",
-    "imagemin": "^8.0.1",
-    "imagemin-gifsicle": "^7.0.0",
-    "imagemin-jpegtran": "^7.0.0",
-    "imagemin-optipng": "^8.0.0",
-    "imagemin-svgo": "^10.0.1"
+    "webpack-merge": "^5.8.0"
   },
   "resolutions": {
     "styled-components": "^5"
