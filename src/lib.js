@@ -1,3 +1,4 @@
+const isDev = process.env.NODE_ENV !== 'production';
 const path = require('path');
 const kill = require('tree-kill');
 const importCwd = require('import-cwd');
@@ -60,4 +61,46 @@ module.exports.getCommonPaths = () => {
         ...commonPaths,
         ...paths
     };
+};
+
+module.exports.setupBabel = (mode) => {
+    const commonPresets = [
+        [
+            '@babel/preset-env',
+            {
+                modules: false,
+                useBuiltIns: 'entry',
+                corejs: 3
+            }
+        ],
+        '@babel/react',
+        '@babel/typescript'
+    ];
+
+    const commonPlugins = [
+        [
+            'babel-plugin-styled-components',
+            {
+                ssr: false,
+                pure: true,
+                displayName: isDev,
+                fileName: isDev
+            }
+        ]
+    ];
+
+    switch (mode) {
+        case 'dev':
+            return {
+                presets: commonPresets,
+                plugins: [...commonPlugins, 'react-refresh/babel']
+            };
+        case 'prod':
+            return {
+                presets: commonPresets,
+                plugins: commonPlugins
+            };
+        default:
+            throw new Error('Unsupported mode');
+    }
 };

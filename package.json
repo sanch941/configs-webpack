@@ -73,6 +73,7 @@
     "cross-spawn": "^7.0.3",
     "css-loader": "^3.4.2",
     "cssnano": "^4.1.10",
+    "core-js": "3",
     "dotenv": "^8.2.0",
     "dotenv-webpack": "^7.0.3",
     "error-overlay-webpack-plugin": "^1.0.0",

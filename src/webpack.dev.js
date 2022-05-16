@@ -1,10 +1,10 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const portFinderSync = require('portfinder-sync');
-const { getCommonPaths, rootDir } = require('./lib.js');
+const { getCommonPaths, rootDir, setupBabel } = require('./lib.js');
 const { webpackCommonConfig } = require('./webpack.common');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const { merge, mergeWithRules } = require('webpack-merge');
+const { mergeWithRules } = require('webpack-merge');
 const webpack = require('webpack');
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 const importCwd = require('import-cwd');
@@ -75,9 +75,7 @@ const config = {
                     'thread-loader',
                     {
                         loader: 'babel-loader',
-                        options: {
-                            plugins: ['react-refresh/babel']
-                        }
+                        options: setupBabel('dev')
                     }
                 ],
                 exclude: /node_modules/

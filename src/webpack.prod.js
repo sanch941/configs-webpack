@@ -5,7 +5,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const { getCommonPaths } = require('./lib');
+const { getCommonPaths, setupBabel } = require('./lib');
 const { webpackCommonConfig } = require('./webpack.common');
 const importCwd = require('import-cwd');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
@@ -92,7 +92,8 @@ const config = {
                 exclude: /(?:@?babel(?:\/|\{1,2}|-).+)|regenerator-runtime|core-js/,
                 use: [
                     {
-                        loader: 'babel-loader'
+                        loader: 'babel-loader',
+                        options: setupBabel('prod')
                     }
                 ]
             },
