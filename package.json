@@ -1,6 +1,6 @@
 {
   "name": "@sanch941/configs-webpack",
-  "version": "3.9.2",
+  "version": "3.10.0",
   "description": "Typescript-react-webpack-configs",
   "main": "src/index.js",
   "bin": {
@@ -68,12 +68,12 @@
     "compression-webpack-plugin": "^9.0.1",
     "concurrently": "^5.2.0",
     "copy-webpack-plugin": "^10.0.0",
+    "core-js": "3",
     "corejs": "^1.0.0",
     "cross-env": "^7.0.2",
     "cross-spawn": "^7.0.3",
     "css-loader": "^3.4.2",
     "cssnano": "^4.1.10",
-    "core-js": "3",
     "dotenv": "^8.2.0",
     "dotenv-webpack": "^7.0.3",
     "error-overlay-webpack-plugin": "^1.0.0",
