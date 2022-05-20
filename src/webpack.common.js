@@ -27,7 +27,8 @@ module.exports.webpackCommonConfig = {
     plugins: [
         new webpack.DefinePlugin({
             _DEV_: isDev,
-            _API_URL_: JSON.stringify(process.env.API_URL)
+            _API_URL_: JSON.stringify(process.env.API_URL),
+            _STRAPI_URL: JSON.stringify(process.env.STRAPI_URL)
         }),
         new Dotenv({
             path: path.join(rootDir, '.env')
