@@ -61,7 +61,7 @@ const config = {
         rules: [
             // .ts, .tsx
             {
-                test: /\.(js|jsx|ts|tsx)$/,
+                test: /\.(ts|tsx)$/,
                 use: [
                     {
                         loader: 'cache-loader',
