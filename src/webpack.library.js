@@ -5,7 +5,7 @@ const { rootDir } = require('./lib');
 
 const { customDependencies } = importCwd('./webpack-eject.js');
 const { dependencies } = importCwd('./package.json');
-const { ['react-imask']: value, ...allDependencies } =
+const { ['react-imask']: val1, ['@sanch941/lib']: val2, ...allDependencies } =
     customDependencies || dependencies;
 
 module.exports = {
