@@ -8,7 +8,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const { getCommonPaths, setupBabel } = require('./lib');
 const { webpackCommonConfig } = require('./webpack.common');
 const importCwd = require('import-cwd');
-const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
+// const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 const { customProdConfig = {}, optimizeImage = true } = importCwd(
     './webpack-eject.js'
@@ -39,50 +39,50 @@ const config = {
                         comments: false
                     }
                 }
-            }),
-            optimizeImage &&
-                new ImageMinimizerPlugin({
-                    minimizer: {
-                        implementation: ImageMinimizerPlugin.imageminMinify,
-                        options: {
-                            // Lossless optimization with custom option
-                            // Feel free to experiment with options for better result for you
-                            plugins: [
-                                ['gifsicle', { interlaced: true }],
-                                ['jpegtran', { progressive: true }],
-                                ['pngquant', { quality: [0.5, 0.6] }],
-                                // Svgo configuration here https://github.com/svg/svgo#configuration
-                                [
-                                    'svgo',
-                                    {
-                                        plugins: [
-                                            {
-                                                name: 'preset-default'
-                                            },
-                                            {
-                                                name: 'removeViewBox',
-                                                active: false
-                                            },
-                                            {
-                                                name:
-                                                    'addAttributesToSVGElement',
-                                                params: {
-                                                    attributes: [
-                                                        {
-                                                            xmlns:
-                                                                'http://www.w3.org/2000/svg'
-                                                        }
-                                                    ]
-                                                }
-                                            }
-                                        ]
-                                    }
-                                ]
-                            ]
-                        }
-                    }
-                })
-        ].filter(Boolean),
+            })
+            // optimizeImage &&
+            //     new ImageMinimizerPlugin({
+            //         minimizer: {
+            //             implementation: ImageMinimizerPlugin.imageminMinify,
+            //             options: {
+            //                 // Lossless optimization with custom option
+            //                 // Feel free to experiment with options for better result for you
+            //                 plugins: [
+            //                     ['gifsicle', { interlaced: true }],
+            //                     ['jpegtran', { progressive: true }],
+            //                     ['pngquant', { quality: [0.5, 0.6] }],
+            //                     // Svgo configuration here https://github.com/svg/svgo#configuration
+            //                     [
+            //                         'svgo',
+            //                         {
+            //                             plugins: [
+            //                                 {
+            //                                     name: 'preset-default'
+            //                                 },
+            //                                 {
+            //                                     name: 'removeViewBox',
+            //                                     active: false
+            //                                 },
+            //                                 {
+            //                                     name:
+            //                                         'addAttributesToSVGElement',
+            //                                     params: {
+            //                                         attributes: [
+            //                                             {
+            //                                                 xmlns:
+            //                                                     'http://www.w3.org/2000/svg'
+            //                                             }
+            //                                         ]
+            //                                     }
+            //                                 }
+            //                             ]
+            //                         }
+            //                     ]
+            //                 ]
+            //             }
+            //         }
+            //     })
+        ],
         usedExports: true,
         splitChunks: {
             chunks: 'all'
