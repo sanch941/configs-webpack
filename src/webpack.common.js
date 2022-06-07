@@ -59,6 +59,11 @@ module.exports.webpackCommonConfig = {
                         }
                     }
                 ]
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg|webp)$/i,
+                exclude: /\.inline.svg$/,
+                type: 'asset'
             }
         ]
     },

@@ -100,11 +100,6 @@ const config = {
                         options: setupBabel('prod')
                     }
                 ]
-            },
-            {
-                test: /\.(png|jpe?g|gif|svg)$/i,
-                exclude: /\.inline.svg$/,
-                type: 'asset'
             }
         ]
     },
