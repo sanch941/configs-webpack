@@ -117,7 +117,10 @@ const config = {
             ]
         }),
         new HtmlWebpackPlugin({
-            template: path.join(staticPath, 'index.ejs'),
+            template: `!!prerender-loader?string!${path.join(
+                staticPath,
+                'index.ejs'
+            )}`,
             inject: 'body',
             scriptLoading: 'blocking',
             minify: {
