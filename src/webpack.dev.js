@@ -109,7 +109,9 @@ const config = {
                 path.join(rootDir, 'build/library/library.dll.js')
             )
         }),
-        new ReactRefreshWebpackPlugin()
+        new ReactRefreshWebpackPlugin({
+            overlay: false
+        })
     ],
     performance: {
         hints: false
