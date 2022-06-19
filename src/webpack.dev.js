@@ -11,8 +11,10 @@ const importCwd = require('import-cwd');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const openBrowser = require('react-dev-utils/openBrowser');
 
-const { sourcePath, outputPath, staticPath } = getCommonPaths();
-const { customDevConfig = {} } = importCwd('./webpack-eject.js');
+const { outputPath, staticPath } = getCommonPaths();
+const { customDevConfig = {}, reuseCurrentTab = false } = importCwd(
+    './webpack-eject.js'
+);
 const port = portFinderSync.getPort(3000);
 
 const config = {
@@ -21,7 +23,7 @@ const config = {
     devServer: {
         hot: true,
         port,
-        open: false,
+        open: !reuseCurrentTab,
         historyApiFallback: true,
         static: {
             directory: staticPath
@@ -54,7 +56,7 @@ const config = {
             }
         },
         onAfterSetupMiddleware: () => {
-            openBrowser(`http://localhost:${port}`);
+            reuseCurrentTab && openBrowser(`http://localhost:${port}`);
         }
     },
     output: {
