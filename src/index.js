@@ -50,7 +50,7 @@ switch (task) {
         break;
     }
     case 'clean-cache': {
-        result = spawn.sync('rimraf ./node_modules/.cache/', {
+        result = spawn.sync(`rimraf ${rootDir}/node_modules/.cache/`, {
             shell: true
         });
         break;
