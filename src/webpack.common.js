@@ -6,10 +6,9 @@ const importCwd = require('import-cwd');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
     .BundleAnalyzerPlugin;
 
+const analyzeBundle = process.env.ANALYZE_BUNDLE === 'true';
 const isDev = process.env.NODE_ENV !== 'production';
-const { aliases, customCommonConfig = {}, analyzeBundle } = importCwd(
-    './webpack-eject.js'
-);
+const { aliases, customCommonConfig = {} } = importCwd('./webpack-eject.js');
 const { sourcePath } = getCommonPaths();
 
 module.exports.webpackCommonConfig = {

@@ -12,9 +12,8 @@ const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin'
 const openBrowser = require('react-dev-utils/openBrowser');
 
 const { outputPath, staticPath } = getCommonPaths();
-const { customDevConfig = {}, reuseCurrentTab = false } = importCwd(
-    './webpack-eject.js'
-);
+const { customDevConfig = {} } = importCwd('./webpack-eject.js');
+const reuseCurrentTab = process.env.REUSE_CURRENT_TAB === 'true';
 const port = portFinderSync.getPort(3000);
 
 const config = {
