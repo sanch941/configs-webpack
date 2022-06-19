@@ -19,9 +19,9 @@ const config = {
     mode: 'development',
     devtool: 'eval',
     devServer: {
-        hot: false,
+        hot: true,
         port,
-        open: true,
+        open: false,
         historyApiFallback: true,
         static: {
             directory: staticPath
