@@ -64,18 +64,7 @@ module.exports.getCommonPaths = () => {
 };
 
 module.exports.setupBabel = (mode) => {
-    const commonPresets = [
-        [
-            '@babel/preset-env',
-            {
-                modules: false,
-                useBuiltIns: 'entry',
-                corejs: 3
-            }
-        ],
-        '@babel/react',
-        '@babel/typescript'
-    ];
+    const commonPresets = ['@babel/react', '@babel/typescript'];
 
     const commonPlugins = [
         [
