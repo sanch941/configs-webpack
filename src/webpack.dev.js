@@ -13,13 +13,14 @@ const openBrowser = require('react-dev-utils/openBrowser');
 
 const { sourcePath, outputPath, staticPath } = getCommonPaths();
 const { customDevConfig = {} } = importCwd('./webpack-eject.js');
+const port = portFinderSync.getPort(3000);
 
 const config = {
     mode: 'development',
     devtool: 'eval',
     devServer: {
-        hot: true,
-        port: portFinderSync.getPort(3000),
+        hot: false,
+        port,
         open: true,
         historyApiFallback: true,
         static: {
@@ -53,7 +54,7 @@ const config = {
             }
         },
         onAfterSetupMiddleware: () => {
-            openBrowser(`http://localhost:${portFinderSync.getPort(3000)}`);
+            openBrowser(`http://localhost:${port}`);
         }
     },
     output: {
