@@ -63,7 +63,6 @@ const config = {
             {
                 test: /\.(ts|tsx)$/,
                 use: [
-                    'thread-loader',
                     {
                         loader: 'babel-loader',
                         options: {
