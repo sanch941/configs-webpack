@@ -1,6 +1,6 @@
 {
   "name": "@sanch941/configs-webpack",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "Typescript-react-webpack-configs",
   "main": "src/index.js",
   "bin": {
@@ -36,6 +36,7 @@
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.4",
     "@types/classnames": "^2.2.9",
     "@types/history": "^4.7.3",
     "@types/i18next-browser-languagedetector": "^3.0.0",
