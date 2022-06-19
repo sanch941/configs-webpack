@@ -1,6 +1,6 @@
 {
   "name": "@sanch941/configs-webpack",
-  "version": "5.0.3",
+  "version": "5.0.4",
   "description": "Typescript-react-webpack-configs",
   "main": "src/index.js",
   "bin": {
