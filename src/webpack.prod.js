@@ -29,8 +29,12 @@ const config = {
         minimize: true,
         minimizer: [
             new TerserPlugin({
+                extractComments: false,
                 parallel: true,
                 terserOptions: {
+                    format: {
+                        comments: false
+                    },
                     mangle: {
                         keep_classnames: true,
                         keep_fnames: true
