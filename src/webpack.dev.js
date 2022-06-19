@@ -63,15 +63,6 @@ const config = {
             {
                 test: /\.(ts|tsx)$/,
                 use: [
-                    {
-                        loader: 'cache-loader',
-                        options: {
-                            cacheDirectory: path.resolve(
-                                rootDir,
-                                'node_modules/.cache/cache-loader'
-                            )
-                        }
-                    },
                     'thread-loader',
                     {
                         loader: 'babel-loader',
