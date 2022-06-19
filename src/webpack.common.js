@@ -24,6 +24,9 @@ module.exports.webpackCommonConfig = {
             ...setupAliases(sourcePath, aliases)
         }
     },
+    cache: {
+        type: 'filesystem'
+    },
     plugins: [
         new webpack.DefinePlugin({
             _DEV_: isDev,

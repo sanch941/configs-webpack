@@ -63,10 +63,13 @@ const config = {
             {
                 test: /\.(ts|tsx)$/,
                 use: [
-                    'thread-loader',
                     {
                         loader: 'babel-loader',
-                        options: setupBabel('dev')
+                        options: {
+                            cacheCompression: false,
+                            cacheDirectory: true,
+                            ...setupBabel('dev')
+                        }
                     }
                 ],
                 exclude: /node_modules/

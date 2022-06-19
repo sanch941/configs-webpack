@@ -105,7 +105,11 @@ const config = {
                 use: [
                     {
                         loader: 'babel-loader',
-                        options: setupBabel('prod')
+                        options: {
+                            cacheCompression: false,
+                            cacheDirectory: true,
+                            ...setupBabel('prod')
+                        }
                     }
                 ]
             }
