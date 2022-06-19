@@ -64,7 +64,18 @@ module.exports.getCommonPaths = () => {
 };
 
 module.exports.setupBabel = (mode) => {
-    const commonPresets = ['@babel/react', '@babel/typescript'];
+    const commonPresets = [
+        [
+            '@babel/preset-env',
+            {
+                modules: false,
+                useBuiltIns: 'entry',
+                corejs: 3
+            }
+        ],
+        '@babel/react',
+        '@babel/typescript'
+    ];
 
     const commonPlugins = [
         [
@@ -87,16 +98,7 @@ module.exports.setupBabel = (mode) => {
         case 'prod':
             return {
                 presets: commonPresets,
-                plugins: [
-                    ...commonPlugins,
-                    [
-                        '@babel/plugin-transform-runtime',
-                        {
-                            corejs: 3,
-                            version: '^7.18.3'
-                        }
-                    ]
-                ]
+                plugins: commonPlugins
             };
         default:
             throw new Error('Unsupported mode');
