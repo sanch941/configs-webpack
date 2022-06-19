@@ -49,6 +49,12 @@ switch (task) {
         });
         break;
     }
+    case 'clean-cache': {
+        result = spawn.sync('rimraf ./node_modules/.cache/', {
+            shell: true
+        });
+        break;
+    }
     default:
         console.log(`Unknown script "${task}".`);
 }
