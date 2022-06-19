@@ -90,11 +90,6 @@ const config = {
                     semantic: true,
                     syntactic: true
                 }
-            },
-
-            eslint: {
-                enabled: true,
-                files: path.join(sourcePath, '**/*.{ts,tsx}')
             }
         }),
         new HtmlWebpackPlugin({
