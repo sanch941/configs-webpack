@@ -9,6 +9,7 @@ const webpack = require('webpack');
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 const importCwd = require('import-cwd');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const openBrowser = require('react-dev-utils/openBrowser');
 
 const { sourcePath, outputPath, staticPath } = getCommonPaths();
 const { customDevConfig = {} } = importCwd('./webpack-eject.js');
@@ -50,6 +51,9 @@ const config = {
                 errors: true,
                 warnings: false
             }
+        },
+        onAfterSetupMiddleware: () => {
+            openBrowser(`http://localhost:${portFinderSync.getPort(3000)}`);
         }
     },
     output: {
