@@ -98,7 +98,16 @@ module.exports.setupBabel = (mode) => {
         case 'prod':
             return {
                 presets: commonPresets,
-                plugins: commonPlugins
+                plugins: [
+                    ...commonPlugins,
+                    [
+                        '@babel/plugin-transform-runtime',
+                        {
+                            corejs: 3,
+                            version: '^7.18.3'
+                        }
+                    ]
+                ]
             };
         default:
             throw new Error('Unsupported mode');
