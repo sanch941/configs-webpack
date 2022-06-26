@@ -1,7 +1,7 @@
 {
   "name": "@sanch941/configs-webpack",
   "version": "5.4.0",
-  "description": "Typescript-react-webpack-configs",
+  "description": "Webpack 5 configs inspired by best practices of webpack guru's from USA/CIS",
   "main": "src/index.js",
   "bin": {
     "sanch941-configs-webpack": "./src/index.js"
@@ -15,7 +15,7 @@
     "library": "webpack --config public/webpack.library.js",
     "clean-cache": "rimraf ./node_modules/.cache/",
     "version": "git add -A .",
-    "postversion": "git push origin develop"
+    "postversion": "git push github develop"
   },
   "author": "sanch941",
   "license": "MIT",
@@ -24,12 +24,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/sanch941/configs-webpack.git"
+    "url": "git+https://github.com/sanch941/configs-webpack.git"
   },
-  "bugs": {
-    "url": "https://gitlab.com/sanch941/configs-webpack/issues"
-  },
-  "homepage": "https://gitlab.com/sanch941/configs-webpack#readme",
+  "homepage": "https://github.com/sanch941/configs-webpack.git#readme",
   "dependencies": {
     "@babel/core": "^7.7.7",
     "@babel/plugin-transform-typescript": "^7.10.4",
