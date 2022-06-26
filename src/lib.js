@@ -5,7 +5,7 @@ const importCwd = require('import-cwd');
 
 const { paths = {} } = importCwd('./webpack-eject.js');
 const debugBabel = process.env.BABEL_DEBUG === 'true';
-const useBuiltIns = process.env.USE_BUILT_INS || 'entry';
+const useBuiltIns = process.env.USE_BUILT_INS || 'usage';
 
 const folderAliasesCommon = {
     '@features': 'features',
