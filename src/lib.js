@@ -4,6 +4,7 @@ const kill = require('tree-kill');
 const importCwd = require('import-cwd');
 
 const { paths = {} } = importCwd('./webpack-eject.js');
+const debugBabel = process.env.BABEL_DEBUG === 'true';
 
 const folderAliasesCommon = {
     '@features': 'features',
@@ -68,9 +69,10 @@ module.exports.setupBabel = (mode) => {
         [
             '@babel/preset-env',
             {
-                modules: false,
+                modules: 'commonjs',
                 useBuiltIns: 'entry',
-                corejs: 3
+                corejs: 3,
+                debug: debugBabel
             }
         ],
         '@babel/react',
