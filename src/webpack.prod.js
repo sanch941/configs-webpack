@@ -10,9 +10,7 @@ const { webpackCommonConfig } = require('./webpack.common');
 const importCwd = require('import-cwd');
 // const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
-const { customProdConfig = {}, optimizeImage = true } = importCwd(
-    './webpack-eject.js'
-);
+const { customProdConfig = {} } = importCwd('./webpack-eject.js');
 const { outputPath, publicPath, staticPath } = getCommonPaths();
 
 const config = {

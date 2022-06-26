@@ -65,11 +65,13 @@ module.exports.getCommonPaths = () => {
 };
 
 module.exports.setupBabel = (mode) => {
+    const modules = getModules();
+
     const commonPresets = [
         [
             '@babel/preset-env',
             {
-                modules: 'commonjs',
+                modules,
                 useBuiltIns: 'entry',
                 corejs: 3,
                 debug: debugBabel
@@ -104,5 +106,16 @@ module.exports.setupBabel = (mode) => {
             };
         default:
             throw new Error('Unsupported mode');
+    }
+};
+
+export const getModules = () => {
+    const module = process.env.MODULES;
+
+    switch (module) {
+        case 'false':
+            return false;
+        default:
+            return module || 'auto';
     }
 };
