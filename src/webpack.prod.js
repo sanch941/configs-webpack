@@ -99,7 +99,7 @@ const config = {
             // .ts, .tsx
             {
                 test: /\.(js|jsx|ts|tsx)$/,
-                exclude: /(?:@?babel(?:\/|\{1,2}|-).+)|regenerator-runtime|core-js/,
+                exclude: /node_modules/,
                 use: [
                     {
                         loader: 'babel-loader',
