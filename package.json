@@ -1,21 +1,13 @@
 {
   "name": "@sanch941/configs-webpack",
-  "version": "5.4.6",
+  "version": "5.5.0",
   "description": "Webpack 5 configs inspired by best practices of webpack guru's from USA/CIS",
   "main": "src/index.js",
   "bin": {
     "sanch941-configs-webpack": "./src/index.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --progress --config public/webpack.dev.js",
-    "watch-files": "npx adw -w",
-    "dev": "yarn start",
-    "build": "cross-env NODE_ENV=production webpack -p --config public/webpack.prod.js",
-    "library": "webpack --config public/webpack.library.js",
-    "clean-cache": "rimraf ./node_modules/.cache/",
-    "version": "git add -A .",
-    "postversion": "git push github develop"
+    "version": "git add -A ."
   },
   "author": "sanch941",
   "license": "MIT",

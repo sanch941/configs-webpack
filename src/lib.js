@@ -4,6 +4,8 @@ const kill = require('tree-kill');
 const importCwd = require('import-cwd');
 
 const { paths = {} } = importCwd('./webpack-eject.js');
+const debugBabel = process.env.BABEL_DEBUG === 'true';
+const useBuiltIns = process.env.USE_BUILT_INS || 'usage';
 
 const folderAliasesCommon = {
     '@features': 'features',
@@ -64,13 +66,16 @@ module.exports.getCommonPaths = () => {
 };
 
 module.exports.setupBabel = (mode) => {
+    const modules = getModules();
+
     const commonPresets = [
         [
             '@babel/preset-env',
             {
-                modules: false,
-                useBuiltIns: 'entry',
-                corejs: 3
+                modules,
+                useBuiltIns,
+                corejs: 3,
+                debug: debugBabel
             }
         ],
         '@babel/react',
@@ -104,3 +109,14 @@ module.exports.setupBabel = (mode) => {
             throw new Error('Unsupported mode');
     }
 };
+
+function getModules() {
+    const module = process.env.MODULES;
+
+    switch (module) {
+        case 'false':
+            return false;
+        default:
+            return module || false;
+    }
+}
