@@ -5,6 +5,7 @@ const importCwd = require('import-cwd');
 
 const { paths = {} } = importCwd('./webpack-eject.js');
 const debugBabel = process.env.BABEL_DEBUG === 'true';
+const useBuiltIns = process.env.USE_BUILT_INS || 'entry';
 
 const folderAliasesCommon = {
     '@features': 'features',
@@ -72,7 +73,7 @@ module.exports.setupBabel = (mode) => {
             '@babel/preset-env',
             {
                 modules,
-                useBuiltIns: 'entry',
+                useBuiltIns,
                 corejs: 3,
                 debug: debugBabel
             }
@@ -116,6 +117,6 @@ function getModules() {
         case 'false':
             return false;
         default:
-            return module || 'auto';
+            return module || false;
     }
 }
