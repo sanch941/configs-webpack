@@ -1,6 +1,6 @@
 {
   "name": "@sanch941/configs-webpack",
-  "version": "5.5.0-beta3",
+  "version": "5.5.0-beta4",
   "description": "Webpack 5 configs inspired by best practices of webpack guru's from USA/CIS",
   "main": "src/index.js",
   "bin": {
@@ -14,8 +14,7 @@
     "build": "cross-env NODE_ENV=production webpack -p --config public/webpack.prod.js",
     "library": "webpack --config public/webpack.library.js",
     "clean-cache": "rimraf ./node_modules/.cache/",
-    "version": "git add -A .",
-    "postversion": "git push github develop"
+    "version": "git add -A ."
   },
   "author": "sanch941",
   "license": "MIT",
