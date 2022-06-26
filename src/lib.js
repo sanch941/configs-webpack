@@ -109,7 +109,7 @@ module.exports.setupBabel = (mode) => {
     }
 };
 
-export const getModules = () => {
+function getModules() {
     const module = process.env.MODULES;
 
     switch (module) {
@@ -118,4 +118,4 @@ export const getModules = () => {
         default:
             return module || 'auto';
     }
-};
+}
