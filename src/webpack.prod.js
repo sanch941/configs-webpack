@@ -1,5 +1,6 @@
 const { merge } = require('webpack-merge');
 const path = require('path');
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -8,15 +9,17 @@ const TerserPlugin = require('terser-webpack-plugin');
 const { getCommonPaths, setupBabel } = require('./lib');
 const { webpackCommonConfig } = require('./webpack.common');
 const importCwd = require('import-cwd');
+
 // const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
-const { customProdConfig = {} } = importCwd('./webpack-eject.js');
+const { customProdConfig = {}, optimizeImage = true } = importCwd(
+    './webpack-eject.js'
+);
 const { outputPath, publicPath, staticPath } = getCommonPaths();
 
 const config = {
     mode: 'production',
     devtool: 'hidden-source-map',
-    target: 'web',
     output: {
         path: outputPath,
         publicPath,
@@ -30,10 +33,6 @@ const config = {
                 extractComments: false,
                 parallel: true,
                 terserOptions: {
-                    mangle: {
-                        keep_classnames: true,
-                        keep_fnames: true
-                    },
                     output: {
                         comments: false
                     }
@@ -99,7 +98,6 @@ const config = {
             // .ts, .tsx
             {
                 test: /\.(js|jsx|ts|tsx)$/,
-                exclude: /node_modules/,
                 use: [
                     {
                         loader: 'babel-loader',

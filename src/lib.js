@@ -3,9 +3,11 @@ const path = require('path');
 const kill = require('tree-kill');
 const importCwd = require('import-cwd');
 
-const { paths = {} } = importCwd('./webpack-eject.js');
+const { paths = {}, babelSourceType = 'unambiguous' } = importCwd(
+    './webpack-eject.js'
+);
+
 const debugBabel = process.env.BABEL_DEBUG === 'true';
-const useBuiltIns = process.env.USE_BUILT_INS || 'usage';
 
 const folderAliasesCommon = {
     '@features': 'features',
@@ -66,14 +68,12 @@ module.exports.getCommonPaths = () => {
 };
 
 module.exports.setupBabel = (mode) => {
-    const modules = getModules();
-
     const commonPresets = [
         [
             '@babel/preset-env',
             {
-                modules,
-                useBuiltIns,
+                modules: false,
+                useBuiltIns: 'usage',
                 corejs: 3,
                 debug: debugBabel
             }
@@ -103,20 +103,13 @@ module.exports.setupBabel = (mode) => {
         case 'prod':
             return {
                 presets: commonPresets,
-                plugins: commonPlugins
+                plugins: [...commonPlugins, '@babel/plugin-transform-runtime'],
+                ignore: [
+                    /(?:@?babel(?:\/|\{1,2}|-).+)|regenerator-runtime|core-js/
+                ],
+                sourceType: babelSourceType
             };
         default:
             throw new Error('Unsupported mode');
     }
 };
-
-function getModules() {
-    const module = process.env.MODULES;
-
-    switch (module) {
-        case 'false':
-            return false;
-        default:
-            return module || false;
-    }
-}
