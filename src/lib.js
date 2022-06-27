@@ -75,7 +75,10 @@ module.exports.setupBabel = (mode) => {
                 modules,
                 useBuiltIns,
                 corejs: 3,
-                debug: debugBabel
+                debug: debugBabel,
+                targets: {
+                    ie: '11'
+                }
             }
         ],
         '@babel/react',
