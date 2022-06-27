@@ -32,10 +32,6 @@ const config = {
                 extractComments: false,
                 parallel: true,
                 terserOptions: {
-                    mangle: {
-                        keep_classnames: true,
-                        keep_fnames: true
-                    },
                     output: {
                         comments: false
                     }

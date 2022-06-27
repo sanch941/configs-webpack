@@ -16,7 +16,7 @@ module.exports.webpackCommonConfig = {
     entry: {
         app: ['./src/main.tsx']
     },
-    target: 'web',
+    target: ['web', 'es5'],
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.d.ts'],
         alias: {
