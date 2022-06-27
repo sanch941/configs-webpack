@@ -1,5 +1,6 @@
 const { merge } = require('webpack-merge');
 const path = require('path');
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -8,6 +9,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const { getCommonPaths, setupBabel } = require('./lib');
 const { webpackCommonConfig } = require('./webpack.common');
 const importCwd = require('import-cwd');
+
 // const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 const { customProdConfig = {}, optimizeImage = true } = importCwd(
