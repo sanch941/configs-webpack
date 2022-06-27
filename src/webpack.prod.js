@@ -24,7 +24,9 @@ const config = {
         publicPath,
         filename: '[name].[contenthash].js',
         chunkFilename: '[name].[contenthash].js',
-        ecmaVersion: 5
+        environment: {
+            arrowFunction: false
+        }
     },
     optimization: {
         minimize: true,
