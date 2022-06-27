@@ -103,7 +103,11 @@ module.exports.setupBabel = (mode) => {
         case 'prod':
             return {
                 presets: commonPresets,
-                plugins: commonPlugins
+                plugins: commonPlugins,
+                ignore: [
+                    /(?:@?babel(?:\/|\{1,2}|-).+)|regenerator-runtime|core-js/
+                ],
+                sourceType: 'unambiguous'
             };
         default:
             throw new Error('Unsupported mode');
