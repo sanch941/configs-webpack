@@ -18,15 +18,11 @@ const { outputPath, publicPath, staticPath } = getCommonPaths();
 const config = {
     mode: 'production',
     devtool: 'hidden-source-map',
-    target: 'web',
     output: {
         path: outputPath,
         publicPath,
         filename: '[name].[contenthash].js',
-        chunkFilename: '[name].[contenthash].js',
-        environment: {
-            arrowFunction: false
-        }
+        chunkFilename: '[name].[contenthash].js'
     },
     optimization: {
         minimize: true,

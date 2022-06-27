@@ -16,7 +16,7 @@ module.exports.webpackCommonConfig = {
     entry: {
         app: ['./src/main.tsx']
     },
-    target: 'es5',
+    target: 'browserslist',
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.d.ts'],
         alias: {
