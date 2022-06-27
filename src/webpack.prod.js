@@ -23,7 +23,8 @@ const config = {
         path: outputPath,
         publicPath,
         filename: '[name].[contenthash].js',
-        chunkFilename: '[name].[contenthash].js'
+        chunkFilename: '[name].[contenthash].js',
+        ecmaVersion: 5
     },
     optimization: {
         minimize: true,
