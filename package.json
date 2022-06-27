@@ -1,6 +1,6 @@
 {
   "name": "@sanch941/configs-webpack",
-  "version": "5.5.2-beta5",
+  "version": "5.5.2-beta6",
   "description": "Webpack 5 configs inspired by best practices of webpack guru's from USA/CIS",
   "main": "src/index.js",
   "bin": {
@@ -21,10 +21,12 @@
   "homepage": "https://github.com/sanch941/configs-webpack.git#readme",
   "dependencies": {
     "@babel/core": "^7.7.7",
+    "@babel/plugin-transform-runtime": "^7.18.5",
     "@babel/plugin-transform-typescript": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
+    "@babel/runtime": "^7.18.3",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.4",
     "@types/node": "^13.11.0",
     "@types/webpack": "^4.41.0",

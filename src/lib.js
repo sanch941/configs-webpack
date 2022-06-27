@@ -78,6 +78,7 @@ module.exports.setupBabel = (mode) => {
                 debug: debugBabel
             }
         ],
+        '@babel/plugin-transform-runtime',
         '@babel/react',
         '@babel/typescript'
     ];
