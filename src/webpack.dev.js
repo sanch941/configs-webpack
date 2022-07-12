@@ -1,12 +1,10 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const portFinderSync = require('portfinder-sync');
-const { getCommonPaths, rootDir, setupBabel } = require('./lib.js');
+const { getCommonPaths, setupBabel } = require('./lib.js');
 const { webpackCommonConfig } = require('./webpack.common');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const { mergeWithRules } = require('webpack-merge');
-const webpack = require('webpack');
-const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 const importCwd = require('import-cwd');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const openBrowser = require('react-dev-utils/openBrowser');
@@ -94,15 +92,6 @@ const config = {
         }),
         new HtmlWebpackPlugin({
             template: path.join(staticPath, 'index.ejs')
-        }),
-        new webpack.DllReferencePlugin({
-            context: rootDir,
-            manifest: require(path.join(rootDir, 'build/library/library.json'))
-        }),
-        new AddAssetHtmlPlugin({
-            filepath: require.resolve(
-                path.join(rootDir, 'build/library/library.dll.js')
-            )
         }),
         new ReactRefreshWebpackPlugin({
             overlay: false
