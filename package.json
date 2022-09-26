@@ -7,13 +7,13 @@
     "sanch941-configs-webpack": "./src/index.js"
   },
   "scripts": {
-    "version": "git add -A ."
+    "version": "git add -A .",
+    "dev": "webpack-dev-server --config ./src/webpack.dev.js",
+    "build": "webpack --config ./src/webpack.prod.js --progress",
+    "clean-cache": "rimraf ./node_modules/.cache/"
   },
   "author": "sanch941",
   "license": "MIT",
-  "directories": {
-    "test": "test"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sanch941/configs-webpack.git"
@@ -28,6 +28,7 @@
     "@babel/preset-typescript": "^7.10.4",
     "@babel/runtime": "^7.18.3",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.4",
+    "@squoosh/lib": "^0.4.0",
     "@types/node": "^13.11.0",
     "@types/webpack": "^4.41.0",
     "@types/webpack-env": "^1.15.1",
@@ -62,6 +63,8 @@
     "html-loader": "^1.1.0",
     "html-webpack-plugin": "^5.5.0",
     "http-server": "^14.1.0",
+    "image-minimizer-webpack-plugin": "^3.6.1",
+    "imagemin": "^8.0.1",
     "import-cwd": "^3.0.0",
     "imports-loader": "^1.1.0",
     "lint-staged": "^10.2.7",
@@ -88,12 +91,28 @@
     "webpack-dev-server": "^4.6.0",
     "webpack-merge": "^5.8.0"
   },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^2.0.7",
+    "react": "^16.12.0",
+    "react-dom": "^16.13.1"
+  },
+  "files": [
+    "src/**/*"
+  ],
+  "browserslist": {
+    "production": [
+      "ie 11"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version"
+    ]
+  },
   "prettier": {
     "semi": true,
     "singleQuote": true,
     "tabWidth": 4,
     "endOfLine": "auto",
     "trailingComma": "none"
-  },
-  "devDependencies": {}
+  }
 }
