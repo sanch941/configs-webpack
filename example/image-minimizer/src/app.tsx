@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image } from '@sanch941/lib';
+import error from '@assets/images/Color.svg';
 
 export const App = () => {
     return (
@@ -11,6 +12,8 @@ export const App = () => {
                     }
                 }}
             />
+
+            <img src={error} alt="" />
         </>
     );
 };
