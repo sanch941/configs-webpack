@@ -29,7 +29,6 @@
     "@babel/preset-typescript": "^7.10.4",
     "@babel/runtime": "^7.18.3",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.4",
-    "@squoosh/lib": "^0.4.0",
     "autoprefixer": "^9.8.4",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.0.6",
@@ -60,7 +59,6 @@
     "html-webpack-plugin": "^5.5.0",
     "http-server": "^14.1.0",
     "image-minimizer-webpack-plugin": "^3.6.1",
-    "imagemin": "^8.0.1",
     "import-cwd": "^3.0.0",
     "imports-loader": "^1.1.0",
     "lint-staged": "^10.2.7",
@@ -76,6 +74,7 @@
     "regenerator-runtime": "^0.13.9",
     "rimraf": "^3.0.2",
     "sass-loader": "^11.1.1",
+    "sharp": "^0.31.0",
     "speed-measure-webpack-plugin": "^1.3.3",
     "style-loader": "^1.1.3",
     "terser-webpack-plugin": "^5.2.5",
@@ -90,15 +89,15 @@
   "devDependencies": {
     "@reduxjs/toolkit": "^1.8.5",
     "@sanch941/lib": "^4.12.3",
-    "babel-plugin-styled-components": "^2.0.7",
-    "react": "^16.12.0",
-    "react-dom": "^16.13.1",
-    "styled-components": "^5.3.5",
     "@types/node": "^13.11.0",
     "@types/webpack": "^4.41.0",
     "@types/webpack-env": "^1.15.1",
     "@typescript-eslint/eslint-plugin": "^3.0.2",
-    "@typescript-eslint/parser": "^3.0.2"
+    "@typescript-eslint/parser": "^3.0.2",
+    "babel-plugin-styled-components": "^2.0.7",
+    "react": "^16.12.0",
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.3.5"
   },
   "files": [
     "src/**/*"

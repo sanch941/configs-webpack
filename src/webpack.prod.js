@@ -71,16 +71,6 @@ const config = {
     },
     plugins: [
         new CleanWebpackPlugin(),
-        new CopyPlugin({
-            patterns: [
-                {
-                    from: 'src/public',
-                    globOptions: {
-                        ignore: ['**/*index.ejs']
-                    }
-                }
-            ]
-        }),
         new HtmlWebpackPlugin({
             template: path.join(staticPath, 'index.ejs'),
             inject: 'body',
@@ -93,6 +83,16 @@ const config = {
                 collapseWhitespace: true,
                 collapseInlineTagWhitespace: true
             }
+        }),
+        new CopyPlugin({
+            patterns: [
+                {
+                    from: 'src/public',
+                    globOptions: {
+                        ignore: ['**/*index.ejs']
+                    }
+                }
+            ]
         }),
         new CompressionPlugin({
             exclude: /.map$/
