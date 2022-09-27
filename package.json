@@ -8,9 +8,11 @@
   },
   "scripts": {
     "version": "git add -A .",
+    "postversion": "git push github develop",
     "dev": "webpack-dev-server --config ./src/webpack.dev.js",
     "build": "webpack --config ./src/webpack.prod.js --progress",
-    "clean-cache": "rimraf ./node_modules/.cache/"
+    "clean-cache": "rimraf ./node_modules/.cache/",
+    "preview": "node scripts/preview.js"
   },
   "author": "sanch941",
   "license": "MIT",
@@ -60,7 +62,7 @@
     "file-loader": "^6.0.0",
     "fork-ts-checker-webpack-plugin": "^7.2.11",
     "glob": "^7.1.6",
-    "html-loader": "^1.1.0",
+    "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.0",
     "http-server": "^14.1.0",
     "image-minimizer-webpack-plugin": "^3.6.1",
@@ -92,9 +94,12 @@
     "webpack-merge": "^5.8.0"
   },
   "devDependencies": {
+    "@reduxjs/toolkit": "^1.8.5",
+    "@sanch941/lib": "^4.12.3",
     "babel-plugin-styled-components": "^2.0.7",
     "react": "^16.12.0",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.3.5"
   },
   "files": [
     "src/**/*"

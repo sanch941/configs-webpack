@@ -1,17 +1,9 @@
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 const imageMinimizer = new ImageMinimizerPlugin({
+    deleteOriginalAssets: false,
     minimizer: {
-        implementation: ImageMinimizerPlugin.squooshMinify,
-        options: {
-            encodeOptions: {
-                mozjpeg: {
-                    // That setting might be close to lossless, but it’s not guaranteed
-                    // https://github.com/GoogleChromeLabs/squoosh/issues/85
-                    quality: 100
-                }
-            }
-        }
+        implementation: ImageMinimizerPlugin.squooshMinify
     },
     generator: [
         {

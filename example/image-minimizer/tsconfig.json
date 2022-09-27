@@ -3,6 +3,7 @@
       "allowSyntheticDefaultImports": true,
       "sourceMap": true,
       "target": "es5",
+      "module": "esnext",
       "resolveJsonModule": true,
       "jsx": "react",
       "moduleResolution": "node",
@@ -16,6 +17,9 @@
       "strictNullChecks": false,
       "esModuleInterop": true,
       "skipLibCheck": true,
+      "types": [
+        "@sanch941/lib"
+      ],
       "outDir": "dist",
       "lib": ["es6", "es7", "dom"],
       "baseUrl": ".",

@@ -75,7 +75,6 @@ const config = {
             patterns: [
                 {
                     from: 'src/public',
-                    info: { minimized: true },
                     globOptions: {
                         ignore: ['**/*index.ejs']
                     }

@@ -1,11 +1,16 @@
-import React from 'react'
-
+import React from 'react';
+import { Image } from '@sanch941/lib';
 
 export const App = () => {
     return (
         <>
-            <img style={{ width: 500 }} src="./images/random.png?as=avif" />
-            <img style={{ width: 500 }} src="./images/random.png?as=webp" />
+            <Image
+                universal={{
+                    '1x': {
+                        url: '/images/random.png'
+                    }
+                }}
+            />
         </>
-    )
-}
+    );
+};
