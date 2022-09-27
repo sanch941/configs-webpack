@@ -9,7 +9,8 @@ const TerserPlugin = require('terser-webpack-plugin');
 const { getCommonPaths, setupBabel } = require('./lib');
 const { webpackCommonConfig } = require('./webpack.common');
 const importCwd = require('import-cwd');
-const { imageMinimizer } = require('./lib/image-minimizer');
+const { svgMinimizer } = require('./lib/svg-minimizer');
+const { pngJpgMinimizer } = require('./lib/png-jpg-minimizer');
 
 const { customProdConfig = {}, optimizeImage } = importCwd(
     './webpack-eject.js'
@@ -37,7 +38,8 @@ const config = {
                     }
                 }
             }),
-            optimizeImage && imageMinimizer
+            optimizeImage && svgMinimizer,
+            optimizeImage && pngJpgMinimizer
         ].filter(Boolean),
         usedExports: true,
         splitChunks: {
@@ -71,16 +73,6 @@ const config = {
     },
     plugins: [
         new CleanWebpackPlugin(),
-        new CopyPlugin({
-            patterns: [
-                {
-                    from: 'src/public',
-                    globOptions: {
-                        ignore: ['**/*index.ejs']
-                    }
-                }
-            ]
-        }),
         new HtmlWebpackPlugin({
             template: path.join(staticPath, 'index.ejs'),
             inject: 'body',
@@ -93,6 +85,16 @@ const config = {
                 collapseWhitespace: true,
                 collapseInlineTagWhitespace: true
             }
+        }),
+        new CopyPlugin({
+            patterns: [
+                {
+                    from: 'src/public',
+                    globOptions: {
+                        ignore: ['**/*index.ejs']
+                    }
+                }
+            ]
         }),
         new CompressionPlugin({
             exclude: /.map$/
