@@ -3,9 +3,11 @@ const path = require('path');
 const kill = require('tree-kill');
 const importCwd = require('import-cwd');
 
-const { paths = {}, babelSourceType = 'unambiguous' } = importCwd(
-    './webpack-eject.js'
-);
+const {
+    paths = {},
+    babelSourceType = 'unambiguous',
+    rootDir: rootDirFromEject
+} = importCwd('./webpack-eject.js');
 
 const debugBabel = process.env.BABEL_DEBUG === 'true';
 
@@ -22,7 +24,7 @@ const folderAliasesCommon = {
     '@lib': 'lib'
 };
 
-const rootDir = path.resolve(process.cwd());
+const rootDir = rootDirFromEject || path.resolve(process.cwd());
 
 module.exports.rootDir = rootDir;
 

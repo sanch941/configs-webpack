@@ -23,5 +23,41 @@ module.exports = {
         node: true,
         es6: true,
         browser: true
-    }
+    },
+    overrides: [
+        {
+            files: ['example/**/*.ts', 'example/**/*.tsx'],
+            parser: '@typescript-eslint/parser', // Specifies the ESLint parser
+            extends: [
+                'plugin:react/recommended', // Uses the recommended rules from @eslint-plugin-react
+                'plugin:@typescript-eslint/recommended', // Uses the recommended rules from the @typescript-eslint/eslint-plugin
+                'prettier/@typescript-eslint', // Uses eslint-config-prettier to disable ESLint rules from @typescript-eslint/eslint-plugin that would conflict with prettier
+                'plugin:react-hooks/recommended'
+            ],
+            rules: {
+                'prettier/prettier': 'warn',
+                '@typescript-eslint/no-var-requires': 0,
+                '@typescript-eslint/no-empty-interface': 0,
+                '@typescript-eslint/no-namespace': 0,
+                '@typescript-eslint/ban-ts-comment': 0,
+                '@typescript-eslint/no-unused-vars': 1,
+                '@typescript-eslint/no-explicit-any': 0,
+                '@typescript-eslint/explicit-module-boundary-types': 0,
+                'react/jsx-no-undef': 2,
+                'react/no-unknown-property': 2,
+                'react-hooks/exhaustive-deps': 0,
+                'react/prop-types': 'off',
+                'prefer-spread': 0,
+                'no-restricted-imports': [
+                    'error',
+                    {
+                        patterns: [
+                            '@material-ui/*/*/*',
+                            '!@material-ui/core/test-utils/*'
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
 };

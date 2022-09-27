@@ -8,7 +8,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
 
 const analyzeBundle = process.env.ANALYZE_BUNDLE === 'true';
 const isDev = process.env.NODE_ENV !== 'production';
-const { aliases, customCommonConfig = {} } = importCwd('./webpack-eject.js');
+const { aliases } = importCwd('./webpack-eject.js');
 const { sourcePath } = getCommonPaths();
 
 module.exports.webpackCommonConfig = {
@@ -68,6 +68,5 @@ module.exports.webpackCommonConfig = {
                 type: 'asset'
             }
         ]
-    },
-    ...customCommonConfig
+    }
 };
