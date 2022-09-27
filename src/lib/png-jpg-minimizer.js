@@ -1,6 +1,6 @@
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
-const imageMinimizer = new ImageMinimizerPlugin({
+const pngJpgMinimizer = new ImageMinimizerPlugin({
     deleteOriginalAssets: false,
     minimizer: {
         implementation: ImageMinimizerPlugin.sharpMinify,
@@ -45,7 +45,8 @@ const imageMinimizer = new ImageMinimizerPlugin({
                 }
             }
         }
-    ]
+    ],
+    test: /\.(jpe?g|png)$/i
 });
 
-module.exports.imageMinimizer = imageMinimizer;
+module.exports.pngJpgMinimizer = pngJpgMinimizer;
