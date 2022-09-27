@@ -1,19 +1,20 @@
 {
   "name": "@sanch941/configs-webpack",
-  "version": "6.0.0",
+  "version": "7.0.0",
   "description": "Webpack 5 configs inspired by best practices of webpack guru's from USA/CIS",
   "main": "src/index.js",
   "bin": {
     "sanch941-configs-webpack": "./src/index.js"
   },
   "scripts": {
-    "version": "git add -A ."
+    "version": "git add -A .",
+    "dev": "webpack-dev-server --config ./src/webpack.dev.js",
+    "build": "webpack --config ./src/webpack.prod.js --progress",
+    "clean-cache": "rimraf ./node_modules/.cache/",
+    "preview": "node scripts/preview.js"
   },
   "author": "sanch941",
   "license": "MIT",
-  "directories": {
-    "test": "test"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sanch941/configs-webpack.git"
@@ -28,12 +29,7 @@
     "@babel/preset-typescript": "^7.10.4",
     "@babel/runtime": "^7.18.3",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.4",
-    "@types/node": "^13.11.0",
-    "@types/webpack": "^4.41.0",
-    "@types/webpack-env": "^1.15.1",
-    "@typescript-eslint/eslint-plugin": "^3.0.2",
-    "@typescript-eslint/parser": "^3.0.2",
-    "add-asset-html-webpack-plugin": "^3.1.3",
+    "@squoosh/lib": "^0.4.0",
     "autoprefixer": "^9.8.4",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.0.6",
@@ -60,9 +56,11 @@
     "file-loader": "^6.0.0",
     "fork-ts-checker-webpack-plugin": "^7.2.11",
     "glob": "^7.1.6",
-    "html-loader": "^1.1.0",
+    "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.0",
     "http-server": "^14.1.0",
+    "image-minimizer-webpack-plugin": "^3.6.1",
+    "imagemin": "^8.0.1",
     "import-cwd": "^3.0.0",
     "imports-loader": "^1.1.0",
     "lint-staged": "^10.2.7",
@@ -86,8 +84,33 @@
     "webpack": "^5.64.4",
     "webpack-bundle-analyzer": "^4.5.0",
     "webpack-cli": "^4.9.1",
-    "webpack-dev-server": "^4.6.0",
+    "webpack-dev-server": "4.7.4",
     "webpack-merge": "^5.8.0"
+  },
+  "devDependencies": {
+    "@reduxjs/toolkit": "^1.8.5",
+    "@sanch941/lib": "^4.12.3",
+    "babel-plugin-styled-components": "^2.0.7",
+    "react": "^16.12.0",
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.3.5",
+    "@types/node": "^13.11.0",
+    "@types/webpack": "^4.41.0",
+    "@types/webpack-env": "^1.15.1",
+    "@typescript-eslint/eslint-plugin": "^3.0.2",
+    "@typescript-eslint/parser": "^3.0.2"
+  },
+  "files": [
+    "src/**/*"
+  ],
+  "browserslist": {
+    "production": [
+      "ie 11"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version"
+    ]
   },
   "prettier": {
     "semi": true,
@@ -95,6 +118,5 @@
     "tabWidth": 4,
     "endOfLine": "auto",
     "trailingComma": "none"
-  },
-  "devDependencies": {}
+  }
 }
