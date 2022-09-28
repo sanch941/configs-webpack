@@ -1,6 +1,6 @@
 {
   "name": "@sanch941/configs-webpack",
-  "version": "7.0.1",
+  "version": "7.0.2",
   "description": "Webpack 5 configs inspired by best practices of webpack guru's from USA/CIS",
   "main": "src/index.js",
   "bin": {
@@ -29,6 +29,7 @@
     "@babel/preset-typescript": "^7.10.4",
     "@babel/runtime": "^7.18.3",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.4",
+    "@squoosh/lib": "^0.4.0",
     "autoprefixer": "^9.8.4",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.0.6",

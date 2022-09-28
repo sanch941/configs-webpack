@@ -3,17 +3,14 @@ const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const pngJpgMinimizer = new ImageMinimizerPlugin({
     deleteOriginalAssets: false,
     minimizer: {
-        implementation: ImageMinimizerPlugin.sharpMinify,
+        implementation: ImageMinimizerPlugin.squooshMinify,
         // Options
         options: {
             encodeOptions: {
-                jpeg: {
-                    quality: 90
-                },
-                png: {
-                    compressionLevel: 9,
-                    adaptiveFiltering: true,
-                    force: true
+                mozjpeg: {
+                    // That setting might be close to lossless, but it’s not guaranteed
+                    // https://github.com/GoogleChromeLabs/squoosh/issues/85
+                    quality: 100
                 }
             }
         }
@@ -23,7 +20,7 @@ const pngJpgMinimizer = new ImageMinimizerPlugin({
             type: 'asset',
             // You can apply generator using `?as=webp`, you can use any name and provide more options
             preset: 'webp',
-            implementation: ImageMinimizerPlugin.sharpGenerate,
+            implementation: ImageMinimizerPlugin.squooshGenerate,
             options: {
                 encodeOptions: {
                     webp: {
@@ -36,7 +33,7 @@ const pngJpgMinimizer = new ImageMinimizerPlugin({
             type: 'asset',
             // You can apply generator using `?as=avif`, you can use any name and provide more options
             preset: 'avif',
-            implementation: ImageMinimizerPlugin.sharpGenerate,
+            implementation: ImageMinimizerPlugin.squooshGenerate,
             options: {
                 encodeOptions: {
                     avif: {
