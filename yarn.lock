@@ -1261,6 +1261,14 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
   integrity sha512-9NET910DNaIPngYnLLPeg+Ogzqsi9uM4mSboU5y6p8S5DzMTVEsJZrawi+BoDNUVBa2DhJqQYUFvMDfgU062LQ==
 
+"@squoosh/lib@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@squoosh/lib/-/lib-0.4.0.tgz#31d18cb082c69e404589e2e281414d10f91e1668"
+  integrity sha512-O1LyugWLZjMI4JZeZMA5vzfhfPjfMZXH5/HmVkRagP8B70wH3uoR7tjxfGNdSavey357MwL8YJDxbGwBBdHp7Q==
+  dependencies:
+    wasm-feature-detect "^1.2.11"
+    web-streams-polyfill "^3.0.3"
+
 "@szmarczak/http-timer@^1.1.2":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@szmarczak/http-timer/-/http-timer-1.1.2.tgz#b1665e2c461a2cd92f4c1bbf50d5454de0d4b421"
@@ -8979,6 +8987,11 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
+wasm-feature-detect@^1.2.11:
+  version "1.2.11"
+  resolved "https://registry.yarnpkg.com/wasm-feature-detect/-/wasm-feature-detect-1.2.11.tgz#e21992fd1f1d41a47490e392a5893cb39d81e29e"
+  integrity sha512-HUqwaodrQGaZgz1lZaNioIkog9tkeEJjrM3eq4aUL04whXOVDRc/o2EGb/8kV0QX411iAYWEqq7fMBmJ6dKS6w==
+
 watchpack@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/watchpack/-/watchpack-2.3.0.tgz#a41bca3da6afaff31e92a433f4c856a0c25ea0c4"
@@ -8993,6 +9006,11 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   integrity sha512-O84QOnr0icsbFGLS0O3bI5FswxzRr8/gHwWkDlQFskhSPryQXvrTMxjxGP4+iWYoauLoBvfDpkrOauZ+0iZpDA==
   dependencies:
     minimalistic-assert "^1.0.0"
+
+web-streams-polyfill@^3.0.3:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/web-streams-polyfill/-/web-streams-polyfill-3.2.1.tgz#71c2718c52b45fd49dbeee88634b3a60ceab42a6"
+  integrity sha512-e0MO3wdXWKrLbL0DgGnUV7WHVuw9OUvL4hjgnPkIeEvESk74gAITi5G606JtZPp39cd8HA9VQzCIvA49LpPN5Q==
 
 webpack-bundle-analyzer@^4.5.0:
   version "4.5.0"

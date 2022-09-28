@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image } from '@sanch941/lib';
-import error from '@assets/images/Color.svg';
+import error from '@assets/images/big.png';
 
 export const App = () => {
     return (
